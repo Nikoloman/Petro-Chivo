@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CrudActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:id="@+id/linearLayout3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="30dp"
+                android:background="@drawable/button_rounded"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/txt_SucursalT"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingTop="10dp"
+                    android:text="@string/string_sucursalTicket"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/txt_FolioT"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/string_folioTicket"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/txt_FechaT"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/string_fechaTicket"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/txt_HoraT"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/string_horaTicket"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/txt_RutaT"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/string_rutaTicket"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/txt_DueñoT"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/string_dueñoTicket"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/txt_PlacasT"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/string_placasTicket"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/txt_UnidadT"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/string_unidadTicket"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/txt_LitrosT"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/string_litrosTicket"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/txt_StatusT"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingBottom="10dp"
+                    android:text="@string/string_statusTicket"
+                    android:textSize="17sp" />
+            </LinearLayout>
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+                <RadioButton
+                    android:id="@+id/radio_Eliminar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="30dp"
+                    android:text="@string/radio_eliminar"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/radio_Modificar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/radio_modificar"
+                    android:textSize="18sp" />
+            </RadioGroup>
+
+
+            <EditText
+                android:id="@+id/edit_Sucursal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:enabled="false"
+                android:inputType="textPersonName"
+                android:hint="@string/string_Sucursal"
+                app:layout_constraintEnd_toStartOf="@+id/edit_Folio"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+            <EditText
+                android:id="@+id/edit_Folio"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:ems="10"
+                android:enabled="false"
+                android:inputType="number"
+                android:hint="@string/string_Folio"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/edit_Sucursal"
+                app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+            <EditText
+                android:id="@+id/edit_Fecha"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:ems="10"
+                android:enabled="false"
+                android:inputType="date"
+                android:hint="@string/string_Fecha"
+                app:layout_constraintEnd_toStartOf="@+id/edit_Hora"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edit_Sucursal" />
+
+
+            <EditText
+                android:id="@+id/edit_Hora"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:ems="10"
+                android:enabled="false"
+                android:inputType="time"
+                android:hint="@string/string_Hora"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/edit_Fecha"
+                app:layout_constraintTop_toBottomOf="@+id/edit_Folio" />
+
+            <EditText
+                android:id="@+id/edit_Ruta"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:ems="10"
+                android:enabled="false"
+                android:inputType="textPersonName"
+                android:hint="@string/string_Ruta"
+                app:layout_constraintEnd_toStartOf="@+id/edit_Dueño"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edit_Fecha" />
+
+            <EditText
+                android:id="@+id/edit_Dueño"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:ems="10"
+                android:enabled="false"
+                android:inputType="textPersonName"
+                android:hint="@string/string_Dueño"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/edit_Ruta"
+                app:layout_constraintTop_toBottomOf="@+id/edit_Hora" />
+
+            <EditText
+                android:id="@+id/edit_Placas"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:ems="10"
+                android:enabled="false"
+                android:hint="@string/string_Placas"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toStartOf="@+id/edit_Unidad"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edit_Ruta" />
+
+            <EditText
+                android:id="@+id/edit_Unidad"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:ems="10"
+                android:enabled="false"
+                android:hint="@string/string_Unidad"
+                android:inputType="number"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/edit_Placas"
+                app:layout_constraintTop_toBottomOf="@+id/edit_Dueño" />
+
+            <EditText
+                android:id="@+id/edit_Litros"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:ems="10"
+                android:enabled="false"
+                android:hint="@string/string_Litros"
+                android:inputType="numberDecimal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edit_Placas" />
+
+            <CheckBox
+                android:id="@+id/checkBox_Status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:enabled="false"
+                android:text="@string/check_status"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edit_Litros" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="50dp"
+                android:onClick="DialogConfirmation"
+                android:text="@string/button_aplicar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox_Status" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

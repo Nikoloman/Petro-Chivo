@@ -1,0 +1,67 @@
+<resources>
+    <string name="app_name">Chivo</string>
+
+    <!-- Strings login -->
+    <string name="button_ingreso">Ingresar</string>
+    <string name="button_registro">Registrarse</string>
+    <string name="string_email">Ingresa tu e-mail</string>
+    <string name="string_contrasena">Ingresa tu contraseña</string>.
+
+    <!-- Menú Overflow -->
+    <string name="item_C">Cobranza</string>
+    <string name="item_N">Estadisticas</string>
+    <string name="item_c">Cerrar Sesion</string>
+
+    <!-- Strings main -->
+    <string name="string_sucursalv">Sucursal: Vicente Guerrero</string>
+    <string name="string_sucursall">Sucursal: Lopez Mateos</string>
+    <string name="string_dia">Buenos días</string>
+    <string name="string_tarde">Buenas tardes</string>
+    <string name="string_noche">Buenas noches</string>
+    <string name="string_capacidad">Capacidad: </string>
+    <string name="string_contenido">Contenido: </string>
+    <string name="string_porcentaje">100%</string>
+    <string name="button_consultaGeneral">Realizar consulta general</string>
+    <string name="string_historialDespacho">Historial general de despachos recientes</string>
+    <string name="button_nuevoDespacho">Agregar un nuevo registro de despacho</string>
+    <string name="string_historialCarga">Historial general de cargas recientes</string>
+    <string name="button_nuevaCarga">Agregar un nuevo registro de carga</string>
+
+    <!-- Strings consultas -->
+    <string name="string_fecha">Fecha</string>
+    <string name="string_hora">Hora</string>
+    <string name="button_consulta">Realizar consulta</string>
+
+    <!-- Strings CRUD -->
+    <string name="string_sucursalTicket">Sucursal:</string>
+    <string name="string_folioTicket">Folio de ticket</string>
+    <string name="string_fechaTicket">Fecha de despacho:</string>
+    <string name="string_horaTicket">Hora de despacho:</string>
+    <string name="string_rutaTicket">Ruta de camión:</string>
+    <string name="string_dueñoTicket">Dueño:</string>
+    <string name="string_placasTicket">Placas:</string>
+    <string name="string_unidadTicket">Unidad:</string>
+    <string name="string_litrosTicket">Litros despachados:</string>
+    <string name="string_statusTicket">Status de pago:</string>
+    <string name="string_fechaCarga">Fecha de carga:</string>
+    <string name="string_horaCarga">Fecha de carga:</string>
+    <string name="string_proveedorCarga">Proveedor:</string>
+    <string name="string_litrosCarga">Litros caragados:</string>
+    <string name="string_Sucursal">Sucursal</string>
+    <string name="string_Folio">Folio</string>
+    <string name="string_Fecha">Fecha</string>
+    <string name="string_Hora">Hora</string>
+    <string name="string_Ruta">Ruta</string>
+    <string name="string_Dueño">Dueño</string>
+    <string name="string_Placas">Placas</string>
+    <string name="string_Unidad">Unidad</string>
+    <string name="string_Litros">Litros</string>
+    <string name="radio_eliminar">Eliminar ticket</string>
+    <string name="radio_modificar">Modificar ticket</string>
+    <string name="check_status">Pagado</string>
+    <string name="button_aplicar">Aplicar </string>
+
+    <!-- Strings nueva carga/despacho -->
+    <string name="txt_nuevoDespacho">Nuevo Despacho</string>
+
+</resources>

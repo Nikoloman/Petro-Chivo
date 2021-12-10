@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.analytics.FirebaseAnalytics;
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     FirebaseAnalytics mFirebaseAnalytics;
     FirebaseAuth mAuth;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+    TextView NombreUsuario;
     LinearLayout LinearVicente, LinearLopez;
     ListView listDispach, listCharge;
 
@@ -38,13 +40,19 @@ public class MainActivity extends AppCompatActivity {
         setTheme(R.style.Theme_Chivo);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        FirebaseUser usuario = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = usuario.getUid();
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
+        NombreUsuario = findViewById(R.id.txt_username);
         LinearVicente = findViewById(R.id.linearLayoutV);
         LinearLopez = findViewById(R.id.linearLayoutL);
         listDispach = findViewById(R.id.listDespacho);
         listCharge = findViewById(R.id.listCarga);
         mAuth = FirebaseAuth.getInstance();
+        String nombre = usuario.getDisplayName();
+
+        NombreUsuario.setText(nombre);
     }
 
     @Override

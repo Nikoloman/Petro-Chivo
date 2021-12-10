@@ -93,7 +93,6 @@ public class HistoryVicenteActivity extends AppCompatActivity implements DatePic
                                 List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
                                 for (DocumentSnapshot d : list) {
                                     DBdata dBdata = d.toObject(DBdata.class);
-                                    Toast.makeText(HistoryVicenteActivity.this, "ID: " + d.getId() , Toast.LENGTH_LONG).show();
                                     historial.add(dBdata);
                                 }
                                 LVAdapter adapter = new LVAdapter(HistoryVicenteActivity.this, historial);

@@ -1,14 +1,16 @@
 package com.example.chivo;
 
 public class DBdata {
-    private String Id, Sucursal, Folio, Fecha, Hora, Ruta, Dueño, Placas, Unidad, Litros, Pagado, Proveedor;
+    private String Id, Sucursal, Fecha, Hora, Ruta, Dueño, Placas, Unidad, Estatus;
+    private int Folio;
+    private float Litros;
 
     public DBdata(){
 
     }
 
-    public DBdata(String id, String sucursal, String folio, String fecha, String hora, String ruta, String dueño
-            ,String placas, String unidad, String litros, String pagado){
+    public DBdata(String id, String sucursal, int folio, String fecha, String hora, String ruta, String dueño
+            ,String placas, String unidad, float litros, String estatus){
         this.Id = id;
         this.Sucursal = Sucursal;
         this.Folio = Folio;
@@ -18,7 +20,7 @@ public class DBdata {
         this.Placas = Placas;
         this.Litros = Litros;
         this.Unidad = Unidad;
-        this.Pagado = Pagado;
+        this.Estatus = Estatus;
     }
 
     public String getId() {
@@ -37,11 +39,11 @@ public class DBdata {
         this.Sucursal = Sucursal;
     }
 
-    public String getFolio() {
+    public int getFolio() {
         return Folio;
     }
 
-    public void setFolio(String Folio) {
+    public void setFolio(int Folio) {
         this.Folio = Folio;
     }
 
@@ -93,19 +95,19 @@ public class DBdata {
         this.Unidad = Unidad;
     }
 
-    public String getLitros() {
+    public float getLitros() {
         return Litros;
     }
 
-    public void setLitros(String Litros) {
+    public void setLitros(float Litros) {
         this.Litros = Litros;
     }
 
-    public String getPagado() {
-        return Pagado;
+    public String getEstatus() {
+        return Estatus;
     }
 
-    public void setPagado(String Pagado) {
-        this.Pagado = Pagado;
+    public void setEstatus(String Pagado) {
+        this.Estatus = Estatus;
     }
 }

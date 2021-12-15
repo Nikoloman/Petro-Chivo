@@ -38,14 +38,15 @@ public class CrudActivity extends AppCompatActivity {
         setTitle("Detalles de venta");
 
         String sucursal = getIntent().getStringExtra("Sucursal");
-        String folio = getIntent().getStringExtra("Folio");
+        int folio = getIntent().getIntExtra("Folio", 0);
         String fecha = getIntent().getStringExtra("Fecha");
         String hora = getIntent().getStringExtra("Hora");
         String ruta = getIntent().getStringExtra("Ruta");
         String dueño = getIntent().getStringExtra("Dueño");
         String placas = getIntent().getStringExtra("Placas");
         String unidad = getIntent().getStringExtra("Unidad");
-        String litros = getIntent().getStringExtra("Litros");
+        float litros = getIntent().getFloatExtra("Litros", 0);
+        String estatus = getIntent().getStringExtra("Estatus");
 
         txt_sucursal = (TextView)findViewById(R.id.txt_SucursalT);
         txt_folio = (TextView)findViewById(R.id.txt_FolioT);
@@ -58,18 +59,9 @@ public class CrudActivity extends AppCompatActivity {
         txt_litros = (TextView)findViewById(R.id.txt_LitrosT);
         txt_estatus = (TextView)findViewById(R.id.txt_StatusT);
 
-        txt_sucursal.setText("Sucursal: " + sucursal);
-        txt_folio.setText("Folio de Ticket: " + folio);
-        txt_fecha.setText("Fecha de despacho: " + fecha);
-        txt_hora.setText("Hora de despacho: " + hora);
-        txt_ruta.setText("Ruta de camión: " + ruta);
-        txt_dueño.setText("Dueño: " + dueño);
-        txt_placas.setText("Placas: " + placas);
-        txt_unidad.setText("Unidad: " + unidad);
-        txt_litros.setText("Litros despachados: " + litros);
-
         radio_eliminar = (RadioButton)findViewById(R.id.radio_Eliminar);
         radio_modificar = (RadioButton)findViewById(R.id.radio_Modificar);
+        check_status = (CheckBox)findViewById(R.id.checkBox_Status);
 
         edit_sucursal = (EditText)findViewById(R.id.edit_Sucursal);
         edit_folio = (EditText)findViewById(R.id.edit_Folio);
@@ -81,17 +73,33 @@ public class CrudActivity extends AppCompatActivity {
         edit_unidad = (EditText)findViewById(R.id.edit_Unidad);
         edit_litros = (EditText)findViewById(R.id.edit_Litros);
 
+        txt_sucursal.setText("Sucursal: " + sucursal);
+        txt_folio.setText("Folio de Ticket: " + folio);
+        txt_fecha.setText("Fecha de despacho: " + fecha);
+        txt_hora.setText("Hora de despacho: " + hora);
+        txt_ruta.setText("Ruta de camión: " + ruta);
+        txt_dueño.setText("Dueño: " + dueño);
+        txt_placas.setText("Placas: " + placas);
+        txt_unidad.setText("Unidad: " + unidad);
+        txt_litros.setText("Litros despachados: " + litros);
+        txt_estatus.setText("Estatus de pago: " + estatus);
+
         edit_sucursal.setText(sucursal);
-        edit_folio.setText(folio);
+        edit_folio.setText(""+folio);
         edit_fecha.setText(fecha);
         edit_hora.setText(hora);
         edit_ruta.setText(ruta);
         edit_dueño.setText(dueño);
         edit_placas.setText(placas);
         edit_unidad.setText(unidad);
-        edit_litros.setText(litros);
+        edit_litros.setText(""+litros);
 
-        check_status = (CheckBox)findViewById(R.id.checkBox_Status);
+        if (estatus.matches("Pagado")){
+            check_status.setChecked(true);
+        }
+        else{
+            check_status.setChecked(false);
+        }
 
         radio_modificar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -128,8 +136,16 @@ public class CrudActivity extends AppCompatActivity {
 
     public void DialogConfirmation (View view){
 
-        String folio = getIntent().getStringExtra("Folio");
-        String litros = getIntent().getStringExtra("Litros");
+        int folio = getIntent().getIntExtra("Folio", 0);
+        float litros = getIntent().getFloatExtra("Litros", 0);
+        String checked_status;
+
+        if (check_status.isChecked()){
+            checked_status = "Pagado";
+        }
+        else{
+            checked_status = "No pagado";
+        }
 
         if (radio_modificar.isChecked()) {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
@@ -153,14 +169,15 @@ public class CrudActivity extends AppCompatActivity {
                                             db.collection("Despachos")
                                                     .document(documentID)
                                                     .update("Sucursal", edit_sucursal.getText().toString(),
-                                                            "Folio", edit_folio.getText().toString(),
+                                                            "Folio", Integer.parseInt(edit_folio.getText().toString()),
                                                             "Fecha", edit_fecha.getText().toString(),
                                                             "Hora", edit_hora.getText().toString(),
                                                             "Ruta", edit_ruta.getText().toString(),
                                                             "Dueño", edit_dueño.getText().toString(),
                                                             "Placas", edit_placas.getText().toString(),
                                                             "Unidad", edit_unidad.getText().toString(),
-                                                            "Litros", edit_litros.getText().toString()
+                                                            "Litros", Float.parseFloat(edit_litros.getText().toString()),
+                                                            "Estatus", checked_status
                                                     )
                                                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                         @Override

@@ -43,6 +43,7 @@ public class LVAdapter extends ArrayAdapter<DBdata> {
                 ticket.putExtra("Unidad", dBdata.getUnidad());
                 ticket.putExtra("Placas", dBdata.getPlacas());
                 ticket.putExtra("Litros", dBdata.getLitros());
+                ticket.putExtra("Estatus", dBdata.getEstatus());
                 getContext().startActivity(ticket);
             }
         });

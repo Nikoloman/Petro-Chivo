@@ -48,19 +48,19 @@ public class NewDispatchActivity extends AppCompatActivity {
 
         Map<String, Object> despacho = new HashMap<>();
         despacho.put("Sucursal", txt_sucursal.getText().toString());
-        despacho.put("Folio", txt_folio.getText().toString());
+        despacho.put("Folio", Integer.parseInt(txt_folio.getText().toString()));
         despacho.put("Fecha", txt_fecha.getText().toString());
         despacho.put("Hora", txt_hora.getText().toString());
         despacho.put("Ruta", txt_ruta.getText().toString());
         despacho.put("Dueño", txt_dueño.getText().toString());
         despacho.put("Placas", txt_placas.getText().toString());
         despacho.put("Unidad", txt_unidad.getText().toString());
-        despacho.put("Litros", txt_litros.getText().toString());
+        despacho.put("Litros", Float.parseFloat(txt_litros.getText().toString()));
         if (checkStatus.isChecked()){
-            despacho.put("Estatus de pago", "Pagado");
+            despacho.put("Estatus", "Pagado");
         }
         else {
-            despacho.put("Estatus de pago", "No pagado");
+            despacho.put("Estatus", "No pagado");
         }
 
         db.collection("Despachos")
@@ -87,6 +87,7 @@ public class NewDispatchActivity extends AppCompatActivity {
         txt_placas.setText(null);
         txt_unidad.setText(null);
         txt_litros.setText(null);
+
 
         checkStatus.setChecked(false);
     }

@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Chivo">
         <activity
+            android:name=".CollectionActivity"
+            android:exported="false" />
+        <activity
             android:name=".NewChargeActivity"
             android:exported="false" />
         <activity
@@ -25,9 +28,6 @@
             android:exported="false" />
         <activity
             android:name=".HistoryLopezActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity_history_lopez"
             android:exported="false" />
         <activity
             android:name=".HistoryVicenteActivity"

@@ -129,7 +129,8 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.item_cobranza){
-
+            Intent cobranza = new Intent(this, CollectionActivity.class);
+            startActivity(cobranza);
         }
         if (id == R.id.item_nuevoCliente){
 

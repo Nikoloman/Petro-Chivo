@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.text.DateFormat;
@@ -66,6 +67,8 @@ public class HistoryVicenteActivity extends AppCompatActivity implements DatePic
         if (fecha.isEmpty() && ruta.isEmpty() && dueño.isEmpty()) {
             db.collection("Despachos")
                     .whereEqualTo("Sucursal", "Vicente Guerrero")
+                    .orderBy("Folio", Query.Direction.DESCENDING)
+                    .limit(50)
                     .get()
                     .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                         @Override
@@ -85,6 +88,8 @@ public class HistoryVicenteActivity extends AppCompatActivity implements DatePic
             db.collection("Despachos")
                     .whereEqualTo("Sucursal", "Vicente Guerrero")
                     .whereEqualTo("Dueño", dueño)
+                    .orderBy("Folio", Query.Direction.DESCENDING)
+                    .limit(50)
                     .get()
                     .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                         @Override
@@ -104,6 +109,8 @@ public class HistoryVicenteActivity extends AppCompatActivity implements DatePic
             db.collection("Despachos")
                     .whereEqualTo("Sucursal", "Vicente Guerrero")
                     .whereEqualTo("Ruta", ruta)
+                    .orderBy("Folio", Query.Direction.DESCENDING)
+                    .limit(50)
                     .get()
                     .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                         @Override
@@ -124,6 +131,8 @@ public class HistoryVicenteActivity extends AppCompatActivity implements DatePic
                     .whereEqualTo("Sucursal", "Vicente Guerrero")
                     .whereEqualTo("Ruta", ruta)
                     .whereEqualTo("Dueño", dueño)
+                    .orderBy("Folio", Query.Direction.DESCENDING)
+                    .limit(50)
                     .get()
                     .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                         @Override
@@ -143,6 +152,8 @@ public class HistoryVicenteActivity extends AppCompatActivity implements DatePic
             db.collection("Despachos")
                     .whereEqualTo("Sucursal", "Vicente Guerrero")
                     .whereEqualTo("Fecha", fecha)
+                    .orderBy("Folio", Query.Direction.DESCENDING)
+                    .limit(50)
                     .get()
                     .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                         @Override
@@ -163,6 +174,8 @@ public class HistoryVicenteActivity extends AppCompatActivity implements DatePic
                     .whereEqualTo("Sucursal", "Vicente Guerrero")
                     .whereEqualTo("Fecha", fecha)
                     .whereEqualTo("Dueño", dueño)
+                    .orderBy("Folio", Query.Direction.DESCENDING)
+                    .limit(50)
                     .get()
                     .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                         @Override
@@ -183,6 +196,8 @@ public class HistoryVicenteActivity extends AppCompatActivity implements DatePic
                     .whereEqualTo("Sucursal", "Vicente Guerrero")
                     .whereEqualTo("Fecha", fecha)
                     .whereEqualTo("Ruta", ruta)
+                    .orderBy("Folio", Query.Direction.DESCENDING)
+                    .limit(50)
                     .get()
                     .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                         @Override
@@ -204,6 +219,8 @@ public class HistoryVicenteActivity extends AppCompatActivity implements DatePic
                     .whereEqualTo("Fecha", fecha)
                     .whereEqualTo("Ruta", ruta)
                     .whereEqualTo("Dueño", dueño)
+                    .orderBy("Folio", Query.Direction.DESCENDING)
+                    .limit(50)
                     .get()
                     .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                         @Override

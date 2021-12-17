@@ -17,16 +17,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <Spinner
         android:id="@+id/edit_Sucursal"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="50dp"
         android:ems="10"
         android:hint="@string/string_Sucursal"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toStartOf="@+id/edit_Folio"
+        app:layout_constraintEnd_toStartOf="@+id/edit_Ruta"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_new" />
 
@@ -34,62 +34,12 @@
         android:id="@+id/edit_Folio"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
         android:layout_marginEnd="10dp"
         android:ems="10"
         android:hint="@string/string_Folio"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/edit_Sucursal"
-        app:layout_constraintTop_toBottomOf="@+id/txt_new" />
-
-    <EditText
-        android:id="@+id/edit_Fecha"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:ems="10"
-        android:inputType="date"
-        android:hint="@string/string_Fecha"
-        app:layout_constraintEnd_toStartOf="@+id/edit_Hora"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_Sucursal" />
-
-
-    <EditText
-        android:id="@+id/edit_Hora"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        android:ems="10"
-        android:inputType="time"
-        android:hint="@string/string_Hora"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/edit_Fecha"
-        app:layout_constraintTop_toBottomOf="@+id/edit_Folio" />
-
-    <EditText
-        android:id="@+id/edit_Ruta"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="@string/string_Ruta"
-        app:layout_constraintEnd_toStartOf="@+id/edit_Dueño"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_Fecha" />
-
-    <EditText
-        android:id="@+id/edit_Dueño"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="@string/string_Dueño"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/edit_Ruta"
+        app:layout_constraintStart_toEndOf="@+id/edit_Placas"
         app:layout_constraintTop_toBottomOf="@+id/edit_Hora" />
 
     <EditText
@@ -100,21 +50,21 @@
         android:ems="10"
         android:hint="@string/string_Placas"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toStartOf="@+id/edit_Unidad"
+        app:layout_constraintEnd_toStartOf="@+id/edit_Folio"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_Ruta" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_Fecha" />
 
-    <EditText
+    <Spinner
         android:id="@+id/edit_Unidad"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:layout_marginEnd="10dp"
         android:ems="10"
         android:hint="@string/string_Unidad"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/edit_Placas"
-        app:layout_constraintTop_toBottomOf="@+id/edit_Dueño" />
+        app:layout_constraintStart_toEndOf="@+id/edit_Dueño"
+        app:layout_constraintTop_toBottomOf="@+id/edit_Ruta" />
 
     <EditText
         android:id="@+id/edit_Litros"
@@ -126,31 +76,85 @@
         android:hint="@string/string_Litros"
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_Placas" />
-
-    <CheckBox
-        android:id="@+id/checkBox_Status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/check_status"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_Litros" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="56dp"
         android:layout_marginEnd="50dp"
-        android:text="@string/button_aplicar"
         android:onClick="AgregarDespacho"
+        android:text="@string/button_aplicar"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBox_Status" />
+
+    <EditText
+        android:id="@+id/edit_Hora"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:ems="10"
+        android:hint="@string/string_Hora"
+        android:inputType="time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/edit_Fecha"
+        app:layout_constraintTop_toBottomOf="@+id/edit_Unidad" />
+
+    <Spinner
+        android:id="@+id/edit_Ruta"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="10dp"
+        android:ems="10"
+        android:hint="@string/string_Ruta"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/edit_Sucursal"
+        app:layout_constraintTop_toBottomOf="@+id/txt_new" />
+
+    <Spinner
+        android:id="@+id/edit_Dueño"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="10dp"
+        android:ems="10"
+        android:hint="@string/string_Dueño"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/edit_Unidad"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_Sucursal" />
+
+    <CheckBox
+        android:id="@+id/checkBox_Status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/check_status"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_Litros" />
+
+    <EditText
+        android:id="@+id/edit_Fecha"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="@string/string_Fecha"
+        android:inputType="date"
+        app:layout_constraintEnd_toStartOf="@+id/edit_Hora"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_Dueño" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

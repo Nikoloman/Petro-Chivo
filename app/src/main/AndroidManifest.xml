@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Chivo">
         <activity
+            android:name=".HistoryGeneralActivity"
+            android:exported="false" />
+        <activity
             android:name=".CollectionActivity"
             android:exported="false" />
         <activity

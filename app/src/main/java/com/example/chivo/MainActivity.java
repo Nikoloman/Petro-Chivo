@@ -152,6 +152,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(lopez);
     }
 
+    public void General (View view){
+        Intent general = new Intent(this, HistoryGeneralActivity.class);
+        startActivity(general);
+    }
+
     public void Despacho (View view){
         Intent despacho = new Intent(this, NewDispatchActivity.class);
         startActivity(despacho);

@@ -8,23 +8,33 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class NewDispatchActivity extends AppCompatActivity {
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+    CollectionReference referencia = db.collection("Rutas");
     EditText txt_folio, txt_fecha, txt_hora, txt_placas, txt_litros;
     CheckBox checkStatus;
     Spinner txt_sucursal, txt_ruta, txt_dueño, txt_unidad;
@@ -46,21 +56,111 @@ public class NewDispatchActivity extends AppCompatActivity {
 
         checkStatus = findViewById(R.id.checkBox_Status);
 
-        String [] Sucursales = {"Sucursal", "Vicente Guerrero", "Lopez Mateos"};
-        String [] Rutas = {"Ruta", "632", "633", "Express", "629"};
-        String [] Dueños = {"Dueño", "Tony", "Goyo", "Jaime Castro", "Fantasma", "Beto Paez", "Palma", "Paulina", "David"};
-        String [] Unidades = {"Unidad","001", "002", "005", "006", "007", "008", "009", "010", "011", "012", "013"};
+        ArrayList Sucursales = new ArrayList();
+        ArrayList Rutas = new ArrayList();
+        ArrayList Dueños = new ArrayList();
+        ArrayList Unidades = new ArrayList();
 
+        Sucursales.add("Sucursales");
+        Sucursales.add("Vicente Guerrero");
+        Sucursales.add("Lopez Mateos");
+        Rutas.add("Ruta");
+        Dueños.add("Dueño");
+        Unidades.add("Unidad");
 
         ArrayAdapter <String> sucursal = new ArrayAdapter<String>(this, R.layout.spinner_item_diesel, Sucursales);
-        ArrayAdapter <String> dueño = new ArrayAdapter<String>(this, R.layout.spinner_item_diesel, Dueños);
-        ArrayAdapter <String> ruta = new ArrayAdapter<String>(this, R.layout.spinner_item_diesel, Rutas);
-        ArrayAdapter <String> unidad = new ArrayAdapter<String>(this, R.layout.spinner_item_diesel, Unidades);
+        ArrayAdapter <String> dueños = new ArrayAdapter<String>(this, R.layout.spinner_item_diesel, Dueños);
+        ArrayAdapter <String> rutas = new ArrayAdapter<String>(this, R.layout.spinner_item_diesel, Rutas);
+        rutas.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter <String> unidades = new ArrayAdapter<String>(this, R.layout.spinner_item_diesel, Unidades);
 
         txt_sucursal.setAdapter(sucursal);
-        txt_dueño.setAdapter(dueño);
-        txt_ruta.setAdapter(ruta);
-        txt_unidad.setAdapter(unidad);
+        txt_dueño.setAdapter(dueños);
+        txt_ruta.setAdapter(rutas);
+        txt_unidad.setAdapter(unidades);
+
+        referencia.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()){
+                    for (QueryDocumentSnapshot d : task.getResult()){
+                        String ruta = d.getId();
+                        Rutas.add(ruta);
+                    }
+                    rutas.notifyDataSetChanged();
+                }
+            }
+        });
+
+        txt_ruta.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                Dueños.clear();
+                Dueños.add("Dueño");
+                txt_dueño.setSelection(0);
+
+                String rutaSeleccionada = adapterView.getItemAtPosition(i).toString();
+
+                db.collection("Rutas")
+                        .document(rutaSeleccionada)
+                        .collection("Dueños")
+                        .get()
+                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()){
+                            for (QueryDocumentSnapshot d : task.getResult()){
+                                String dueño = d.getId();
+                                Dueños.add(dueño);
+                            }
+                            dueños.notifyDataSetChanged();
+                        }
+                    }
+                });
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        txt_dueño.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                Unidades.clear();
+                Unidades.add("Unidad");
+                txt_unidad.setSelection(0);
+
+                db.collection("Rutas")
+                        .document(txt_ruta.getSelectedItem().toString())
+                        .collection("Dueños")
+                        .document(adapterView.getItemAtPosition(i).toString())
+                        .collection("Unidades")
+                        .get()
+                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                if (task.isSuccessful()){
+                                    for (QueryDocumentSnapshot d : task.getResult()){
+                                        String unidad = d.getId();
+                                        Unidades.add(unidad);
+                                    }
+                                    unidades.notifyDataSetChanged();
+                                }
+                            }
+                        });
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
     }
 
     public void AgregarDespacho (View view){
